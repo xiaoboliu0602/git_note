@@ -45,9 +45,8 @@
 <p id="0"></p>
 
 ### 0. git 安装
-```js
-直接下载安装包安装；
-```
+
+[下载安装包](https://git-scm.com/download/win)
 
 <p id="1"></p>
 
