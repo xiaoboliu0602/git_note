@@ -22,23 +22,25 @@
 
 [9. 创建与合并分支](#9)
 
-[10. 解决冲突](#6)
+[10. 解决冲突](#10)
 
-[11. 分支策略管理](#10)
+[11. 分支策略管理](#11)
 
-[12. Bug 分支](#11)
+[12. Bug 分支](#12)
 
-[13. Feature 分支](#12)
+[13. Feature 分支](#13)
 
-[14. 多人协作](#13)
+[14. 多人协作](#14)
 
-[15. 创建标签（版本号）](#14)
+[15. 创建标签（版本号）](#15)
 
-[16. Rebase](#15)
+[16. Rebase](#16)
 
-[17. 操作标签](#16)
+[17. 操作标签](#17)
 
-[18. 修改 git 默认路径](#17)
+[18. 修改 git 默认路径](#18)
+
+[19. VS Code 中使用 Git](#19)
 
 <p id="0"></p>
 
@@ -420,6 +422,30 @@ $ git push origin --tags            // 一次性推送全部未推送标签
 ### 18. 修改 git 默认路径
 ```js
  右键 git 快捷方式图标 -> 属性 -> 去掉目标栏中包含 cd 的片段 -> 起始位置改成目标路径
+```
+
+<p id="19"></p>
+
+### 19. VS Code 中使用 Git
+```
+建议流程：
+    1. 在 GitHub 上新建仓库；
+    2. 在本地用 VS Code 直接 Clone；
+    3. pull 和 push 直接在 VS Code 上操作即可；
+    
+可能出现的问题：
+    1. OpenSSL SSL_connect: Connection was reset in connection to github.com:443
+    原因：本地开启了代理，需要修改代理配置；
+    解决办法：
+            git config --global -l  ## 查看 Git 配置
+    
+            git config --global --unset http.proxy
+            git config --global --unset https.proxy
+             
+            git config --global http.proxy 127.0.0.1:7890
+            git config --global https.proxy 127.0.0.1:7890
+            
+     每次 clone 仓库都要重复这样的操作！
 ```
 
 ### 参考链接
