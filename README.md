@@ -327,7 +327,7 @@ $ git push origin dev     // 推送 dev 分支
 ```js
 $ git rebase
 
-rebase 操作可以把本地未push的分叉提交历史整理成直线；
+rebase 操作可以把本地未 push 的分叉提交历史整理成直线；
 
 rebase 的目的是使得我们在查看历史提交的变化时更容易，因为分叉的提交需要三方对比。
 ```
@@ -345,7 +345,7 @@ Switched to branch 'master'
 
 $ git tag v1.0                                       // 在最新提交的 commit 上打标
 
-$ git tag
+$ git tag                                            // 查看标签
 v1.0
    
 $ git tag v0.9 f52c633                               // 将标签打在 commit ID 上
