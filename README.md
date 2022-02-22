@@ -324,33 +324,31 @@ $ git push origin dev     // 推送 dev 分支
    
 ### 15. Rebase 
 
-```js
+```sh
 $ git rebase
 
-rebase 操作可以把本地未 push 的分叉提交历史整理成直线；
-
-rebase 的目的是使得我们在查看历史提交的变化时更容易，因为分叉的提交需要三方对比。
+# rebase 操作可以把本地未 push 的分叉提交历史整理成直线；
+# rebase 的目的是使得我们在查看历史提交的变化时更容易，因为分叉的提交需要三方对比。
 ```
 
 <p id="16"></p>
    
 ### 16. 创建标签（版本号）
 
-```js
+```sh
 $ git branch
 dev master
   
 $ git checkout master
 Switched to branch 'master'
 
-$ git tag v1.0                                       // 在最新提交的 commit 上打标
-
-$ git tag                                            // 查看标签
+$ git tag v1.0                                       # 在最新提交的 commit 上打标
+$ git tag                                            # 查看标签
 v1.0
    
-$ git tag v0.9 f52c633                               // 将标签打在 commit ID 上
-$ git show v0.1                                      // 查看标签说明
-$ git tag -a v0.1 -m "version 0.1 released" 1094adb  // 指定标签名称和说明文字
+$ git tag v0.9 f52c633                               # 将标签打在 commit ID 上
+$ git show v0.1                                      # 查看标签说明
+$ git tag -a v0.1 -m "version 0.1 released" 1094adb  # 指定标签名称和说明文字
 ```
 
 [返回目录](#目录)
@@ -359,13 +357,13 @@ $ git tag -a v0.1 -m "version 0.1 released" 1094adb  // 指定标签名称和说
    
 ### 17. 操作标签
 
-```js
-$ git tag -d v0.1                   // 删除本地标签
+```sh
+$ git tag -d v0.1                   # 删除本地标签
 Deleted tag 'v0.1' (was f15b0dd)
 
-$ git push origin :refs/tags/v0.9   // 删除远程标签
-$ git push origin v1.0              // 推送指定标签到远程
-$ git push origin --tags            // 一次性推送全部未推送标签
+$ git push origin :refs/tags/v0.9   # 删除远程标签
+$ git push origin v1.0              # 推送指定标签到远程
+$ git push origin --tags            # 一次性推送全部未推送标签
 ```
 
 [返回目录](#目录)
@@ -375,32 +373,30 @@ $ git push origin --tags            // 一次性推送全部未推送标签
 ### 18. 修改 git 默认路径
 
 ```js
- 右键 git 快捷方式图标 -> 属性 -> 去掉目标栏中包含 cd 的片段 -> 起始位置改成目标路径
+右键 git 快捷方式图标 -> 属性 -> 去掉目标栏中包含 cd 的片段 -> 起始位置改成目标路径
 ```
 
 <p id="19"></p>
 
 ### 19. VS Code 中使用 Git
 
-```
-建议流程：
-    1. 在 GitHub 上新建仓库；
-    2. 在本地用 VS Code 直接 Clone；
-    3. pull 和 push 直接在 VS Code 上操作即可；
+```sh
+## 建议流程：
+   1. 在 GitHub 上新建仓库；
+   2. 在本地用 VS Code 直接 Clone；
+   3. pull 和 push 直接在 VS Code 上操作即可；
     
-可能出现的问题：
-    1. OpenSSL SSL_connect: Connection was reset in connection to github.com:443
-    原因：本地开启了代理，需要修改代理配置；
-    解决办法：
-            git config --global -l  ## 查看 Git 配置
-    
-            git config --global --unset http.proxy
-            git config --global --unset https.proxy
-             
-            git config --global http.proxy 127.0.0.1:7890
-            git config --global https.proxy 127.0.0.1:7890
-            
-    每次 clone 仓库都要重复这样的操作！
+## 可能出现的问题：
+   1. OpenSSL SSL_connect: Connection was reset in connection to github.com:443
+      原因：本地开启了代理，需要修改代理配置；
+      解决办法：
+        $ git config --global -l  ## 查看 Git 配置
+
+        $ git config --global --unset http.proxy
+        $ git config --global --unset https.proxy
+
+        $ git config --global http.proxy 127.0.0.1:7890
+        $ git config --global https.proxy 127.0.0.1:7890
 ```
 
 ### 参考链接
