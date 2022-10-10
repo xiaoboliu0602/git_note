@@ -2,47 +2,28 @@
 
 ### 目录
 
-[0. git 安装](#0)
+[0. git 安装](#0)  
+[1. 创建 git 用户](#1)  
+[2. 创建版本库](#2)  
+[3. 时光穿梭](#3)  
+[4. 版本回退](#4)  
+[5. 撤销修改](#5)  
+[6. 删除文件](#6)  
+[7. 添加远程仓库](#7)  
+[8. 从远程仓库克隆](#8)  
+[9. 创建与合并分支](#9)  
+[10. 解决冲突](#10)  
+[11. 分支策略管理](#11)  
+[12. Bug 分支](#12)  
+[13. Feature 分支](#13)  
+[14. 多人协作](#14)  
+[15. 创建标签（版本号）](#15)  
+[16. Rebase](#16)  
+[17. 操作标签](#17)  
+[18. 修改 git 默认路径](#18)  
+[19. VS Code 中使用 Git](#19)  
 
-[1. 创建 git 用户](#1)
-
-[2. 创建版本库](#2)
-
-[3. 时光穿梭](#3)
-
-[4. 版本回退](#4)
-
-[5. 撤销修改](#5)
-
-[6. 删除文件](#6)
-
-[7. 添加远程仓库](#7)
-
-[8. 从远程仓库克隆](#8)
-
-[9. 创建与合并分支](#9)
-
-[10. 解决冲突](#10)
-
-[11. 分支策略管理](#11)
-
-[12. Bug 分支](#12)
-
-[13. Feature 分支](#13)
-
-[14. 多人协作](#14)
-
-[15. 创建标签（版本号）](#15)
-
-[16. Rebase](#16)
-
-[17. 操作标签](#17)
-
-[18. 修改 git 默认路径](#18)
-
-[19. VS Code 中使用 Git](#19)
-
-<p id="0"></p>
+<p id="0"></p>  
 
 ### 0. git 安装
 
@@ -380,24 +361,47 @@ $ git push origin --tags            # 一次性推送全部未推送标签
 
 ### 19. VS Code 中使用 Git
 
-```sh
-## 建议流程：
-   1. 在 GitHub 上新建仓库；
-   2. 在本地用 VS Code 直接 Clone；
-   3. pull 和 push 直接在 VS Code 上操作即可；
+#### 1. git.path
+    file -> preferences -> settings -> 搜 git.path -> settings.json 编辑 -> "git.path": "D:/Program Files/Git/cmd/git.exe"
+
+#### 2. VS Code 登录账号、拉取远程仓库、推送到远程仓库
+
+[参考链接 - GitHub 中开启二次验证](https://www.jianshu.com/p/2075203e88c9)  
+[参考链接 - SSH 方式拉取 GitHub 上的代码](https://www.jianshu.com/p/6bc033293d04)
+
+使用 GitHub 账号登录。  
+可以在 `VS Code` 中 `Open Foder` 直接打开从 `GitHub` 上下载的仓库。  
+可以在 `VS Code` 中 `Open Foder` 直接打开本地同步过的仓库。  
+可以在 `VS Code` 中直接克隆 `GitHub` 上的仓库到本地。  
+可以在 `VS Code` 中将工程目录直接推送到 `GitHub` 上。
+
+#### 3. 注意事项
+
+>`git` 拉取仓库到 `Windows` 系统时默认将 `Linux` 环境下的换行符 `LF` 自动转换成 `Windows` 下的 `CRLF`。  
+>这样的后果是本地运行代码时 `Eslint` 报错，解决办法，直接关掉 `git` 的转换功能：
+
+    $ git config --global --list
+    $ git config --global core.autocrlf false
+
+>开发过程中弹窗要求登录 GitHub 的解决方法：
+
+    $ git help -a | grep credential 
+    $ git config --global credential.helper=store
+
+
+>报错：OpenSSL SSL_connect: Connection was reset in connection to github.com:443  
+>原因：本地开启了代理，需要修改代理配置；  
+>解决办法：
+
+    $ git config --global -l  ## 查看 Git 配置
+
+    $ git config --global --unset http.proxy
+    $ git config --global --unset https.proxy
+
+    $ git config --global http.proxy 127.0.0.1:7890
+    $ git config --global https.proxy 127.0.0.1:7890
     
-## 可能出现的问题：
-   1. OpenSSL SSL_connect: Connection was reset in connection to github.com:443
-      原因：本地开启了代理，需要修改代理配置；
-      解决办法：
-        $ git config --global -l  ## 查看 Git 配置
-
-        $ git config --global --unset http.proxy
-        $ git config --global --unset https.proxy
-
-        $ git config --global http.proxy 127.0.0.1:7890
-        $ git config --global https.proxy 127.0.0.1:7890
-```
+[返回目录](#目录)
 
 ### 参考链接
 
